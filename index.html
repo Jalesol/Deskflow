@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DeskFlow | Gerenciamento de Chamados</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Biblioteca de gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>Desk<span>Flow</span></h2>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#ticketsSection">Chamados</a>
+                <a href="#">Usuários</a>
+                <a href="#reportsSection">Relatórios</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>DeskFlow v1.0</p>
+                <small>Desenvolvido por Lucas</small>
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+                    <h2>Painel de controle</h2>
+                    <p>Gerenciamento de suporte técnico</p>
+                </div>
+
+                <div class="profile">
+                    <span>Administrador</span>
+                </div>
+
+            </header>
+
+            <section class="welcome-section">
+
+                <div>
+                    <h1>Olá, administrador!</h1>
+                    <p>Acompanhe e gerencie seus chamados de TI.</p>
+                </div>
+
+                <button id="newTicketBtn" class="primary-btn">
+                    + Novo chamado
+                </button>
+
+            </section>
+
+            <!-- INDICADORES -->
+
+            <section class="stats-container">
+
+                <div class="stat-card">
+                    <p>Total de chamados</p>
+                    <h2 id="totalTickets">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Pendentes</p>
+                    <h2 id="pendingTickets">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Em andamento</p>
+                    <h2 id="progressTickets">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Resolvidos</p>
+                    <h2 id="resolvedTickets">0</h2>
+                </div>
+
+            </section>
+
+            <!-- RELATÓRIOS E GRÁFICOS -->
+
+            <section class="reports-section" id="reportsSection">
+
+                <div class="reports-header">
+                    <div>
+                        <h2>Relatórios e indicadores</h2>
+                        <p>Visualize o desempenho do suporte técnico.</p>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+
+                    <div class="chart-card">
+                        <h3>Chamados por status</h3>
+
+                        <div class="chart-wrapper">
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Chamados por prioridade</h3>
+
+                        <div class="chart-wrapper">
+                            <canvas id="priorityChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- LISTA DE CHAMADOS -->
+
+            <section class="tickets-section" id="ticketsSection">
+
+                <div class="tickets-header">
+                    <div>
+                        <h2>Chamados recentes</h2>
+                        <p>Consulte e gerencie os chamados cadastrados.</p>
+                    </div>
+                </div>
+
+                <div class="ticket-filters">
+
+                    <div class="search-box">
+                        <input
+                            type="search"
+                            id="searchTicket"
+                            placeholder="Pesquisar por título ou solicitante..."
+                        >
+                    </div>
+
+                    <div class="filter-box">
+                        <select id="statusFilter">
+                            <option value="Todos">Todos os status</option>
+                            <option value="Pendente">Pendente</option>
+                            <option value="Em andamento">Em andamento</option>
+                            <option value="Resolvido">Resolvido</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div id="ticketsList" class="tickets-list"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MODAL DE NOVO CHAMADO -->
+
+    <div class="modal-overlay" id="ticketModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+                <h2>Novo chamado</h2>
+                <button id="closeModal" type="button">&times;</button>
+            </div>
+
+            <form id="ticketForm">
+
+                <div class="form-group">
+                    <label for="ticketTitle">Título do chamado</label>
+
+                    <input
+                        type="text"
+                        id="ticketTitle"
+                        placeholder="Ex: Computador não liga"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="ticketUser">Solicitante</label>
+
+                    <input
+                        type="text"
+                        id="ticketUser"
+                        placeholder="Nome do solicitante"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="ticketDescription">Descrição</label>
+
+                    <textarea
+                        id="ticketDescription"
+                        placeholder="Descreva o problema..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ticketCategory">Categoria</label>
+
+                    <select id="ticketCategory" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Software">Software</option>
+                        <option value="Rede">Rede</option>
+                        <option value="Impressora">Impressora</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ticketPriority">Prioridade</label>
+
+                    <select id="ticketPriority" required>
+                        <option value="">Selecione a prioridade</option>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelModal"
+                        class="secondary-btn"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="primary-btn">
+                        Criar chamado
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
