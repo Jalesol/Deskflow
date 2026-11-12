@@ -1,25 +1,21 @@
-# 🚀 DeskFlow — Sistema de Gestão de Chamados de TI
+# DeskFlow — Sistema de Gestão de Chamados
 
-O **DeskFlow** é uma aplicação web desenvolvida para simular o gerenciamento de chamados de suporte técnico de TI. O objetivo é organizar solicitações, acompanhar prioridades e visualizar o andamento dos atendimentos em um painel administrativo moderno.
+![DeskFlow](https://img.shields.io/badge/DeskFlow-Suporte%20TI-00D9FF?style=for-the-badge)
 
-O projeto foi desenvolvido como parte do meu portfólio, com foco em desenvolvimento Front-end, manipulação do DOM e armazenamento local de dados.
+O **DeskFlow** é uma aplicação web para gerenciamento de chamados de suporte técnico, desenvolvida para organizar solicitações, acompanhar prioridades e visualizar informações por meio de um painel administrativo.
 
-## 🖥️ Demonstração visual
+## 🌐 Demonstração online
 
-Interface com tema escuro, detalhes em azul neon e ciano, buscando uma experiência moderna e intuitiva.
+**Acesse o projeto:** https://deskflow-flame.vercel.app
 
-## ✨ Funcionalidades
+## 🚀 Funcionalidades
 
-- 📊 Dashboard com indicadores de chamados.
-- 🎫 Cadastro de novos chamados.
-- 🔄 Alteração do status dos atendimentos.
-- 🔍 Pesquisa de chamados.
-- 🏷️ Filtro por status.
-- 🚨 Classificação por prioridade.
-- 📈 Gráficos de acompanhamento.
-- 🗑️ Exclusão de chamados.
-- 💾 Persistência de dados utilizando LocalStorage.
-- 📱 Layout responsivo.
+- Cadastro de chamados de suporte.
+- Edição e exclusão de chamados.
+- Controle de status e prioridades.
+- Dashboard com indicadores.
+- Gráficos para visualização dos chamados.
+- Armazenamento de dados no navegador.
 
 ## 🛠️ Tecnologias utilizadas
 
@@ -29,39 +25,36 @@ Interface com tema escuro, detalhes em azul neon e ciano, buscando uma experiên
 - Chart.js
 - LocalStorage
 
-## 🎨 Interface
-
-O projeto utiliza uma identidade visual escura, com tons de azul e ciano, cards informativos, gráficos e componentes interativos.
-
-## ⚙️ Como executar o projeto
+## 💻 Como executar o projeto
 
 1. Clone este repositório:
 
-```bash
-git clone https://github.com/SEU-USUARIO/DeskFlow.git
-```
+   ```bash
+   git clone https://github.com/Jalesol/DeskFlow.git
+   ```
 
 2. Entre na pasta:
 
-```bash
-cd DeskFlow
-```
+   ```bash
+   cd DeskFlow
+   ```
 
 3. Abra o arquivo `index.html` no navegador.
 
-Também é possível abrir a pasta no Visual Studio Code e utilizar a extensão Live Server.
+## 📌 Armazenamento de dados
 
-## 📌 Observação técnica
+O projeto utiliza o LocalStorage do navegador para armazenar os chamados.
 
-Atualmente, o DeskFlow utiliza o LocalStorage do navegador para armazenar os chamados. Os dados ficam salvos localmente no dispositivo e navegador utilizados. O projeto ainda não possui backend, banco de dados compartilhado ou autenticação real.
+Isso significa que os dados ficam salvos localmente no navegador utilizado e não são compartilhados entre diferentes usuários ou dispositivos.
 
 ## 👨‍💻 Desenvolvedor
 
-Desenvolvido por **Lucas Jales de Oliveira**.
+**Lucas Jales de Oliveira**
 
-- GitHub: [Jalesol](https://github.com/Jalesol)
-- LinkedIn: [Lucas Jales](https://www.linkedin.com/in/lucas-jales-635a51330/)
+Desenvolvedor em formação, estudante de Sistemas de Informação e Técnico em Informática.
+
+- GitHub: https://github.com/Jalesol
 
 ---
 
-⭐ Projeto desenvolvido para fins de estudo e portfólio profissional.
+Desenvolvido como projeto de portfólio para aplicar conhecimentos em desenvolvimento web e lógica de programação.
